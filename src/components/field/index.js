@@ -66,73 +66,6 @@ export default class TextField extends PureComponent {
     disabled: false,
   };
 
-  static propTypes = {
-    ...TextInput.propTypes,
-
-    animationDuration: PropTypes.number,
-
-    fontSize: PropTypes.number,
-    labelFontSize: PropTypes.number,
-
-    contentInset: PropTypes.shape({
-      top: PropTypes.number,
-      label: PropTypes.number,
-      input: PropTypes.number,
-      left: PropTypes.number,
-      right: PropTypes.number,
-      bottom: PropTypes.number,
-    }),
-
-    labelOffset: Label.propTypes.offset,
-
-    labelTextStyle: Text.propTypes.style,
-    titleTextStyle: Text.propTypes.style,
-    affixTextStyle: Text.propTypes.style,
-
-    tintColor: PropTypes.string,
-    textColor: PropTypes.string,
-    baseColor: PropTypes.string,
-    lineColor: PropTypes.string,
-    lineTintColor: PropTypes.string,
-    disabledLineColor: PropTypes.string,
-
-    label: PropTypes.string,
-    title: PropTypes.string,
-
-    characterRestriction: PropTypes.number,
-    bottomRightText: PropTypes.string,
-
-    error: PropTypes.any,
-    errorColor: PropTypes.string,
-
-    lineWidth: PropTypes.number,
-    activeLineWidth: PropTypes.number,
-    disabledLineWidth: PropTypes.number,
-
-    lineType: Line.propTypes.lineType,
-    disabledLineType: Line.propTypes.lineType,
-
-    disabled: PropTypes.bool,
-    onPressRightText: PropTypes.func,
-
-    formatText: PropTypes.func,
-
-    renderLeftAccessory: PropTypes.func,
-    renderRightAccessory: PropTypes.func,
-
-    prefix: PropTypes.any,
-    suffix: PropTypes.any,
-
-    containerStyle: (ViewPropTypes || View.propTypes).style,
-    inputContainerStyle: (ViewPropTypes || View.propTypes).style,
-    bottomLabelStyle: (ViewPropTypes || View.propTypes).style,
-
-    testIDHelper: PropTypes.string,
-    accessibilityLabelHelper: PropTypes.string,
-    testIDRightText: PropTypes.string,
-    accessibilityLabelRightText: PropTypes.string,
-  };
-
   static inputContainerStyle = styles.inputContainer;
 
   static contentInset = {
@@ -187,8 +120,8 @@ export default class TextField extends PureComponent {
       text,
       error,
 
-      focusAnimation: new Animated.Value(focusState),
-      labelAnimation: new Animated.Value(labelState),
+      focusAnimation: new Animated.Value(focusState, { useNativeDriver: false }),
+      labelAnimation: new Animated.Value(labelState, { useNativeDriver: false }),
 
       receivedFocus: false,
 
